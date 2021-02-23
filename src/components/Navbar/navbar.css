@@ -1,0 +1,37 @@
+:root {
+  --primary-white: #ffff;
+  --primary-dark: rgba(255, 255, 255, 0);
+  --primary-blue: #71bcb9;
+}
+.logo {
+  object-fit: contain;
+  height: 5rem;
+  cursor: pointer;
+}
+.navbar-brand {
+  color: var(--primary-white) !important;
+}
+nav a.nav-link {
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.0375rem;
+  cursor: pointer;
+}
+
+nav ul li {
+  text-transform: uppercase;
+}
+.navbar-nav > li > a {
+  /* margin-right: 0.2rem;
+  margin-left: 0.2rem; */
+  color: var(--primary-white) !important;
+  border-top: 0.18rem solid var(--primary-dark);
+}
+
+.navbar-nav > li > a.active,
+.navbar-nav > li > a:focus {
+  border-top: 0.18rem solid var(--primary-blue);
+}
+.navbar-nav > li > a:hover {
+  border-top: 0.18rem solid var(--primary-blue);
+}
