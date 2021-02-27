@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import SingleArticle from "./pages/SingleArticle";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route component={Home} path="/" />
+          <Route component={Home} path="/" exact />
+          <Route component={SingleArticle} path="/articles/abc" />
         </Switch>
         <Footer />
       </Router>

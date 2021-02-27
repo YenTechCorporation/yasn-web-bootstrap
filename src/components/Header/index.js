@@ -25,25 +25,27 @@ function Header() {
   ];
   return (
     <div className="container mh-25">
-      <div className="banner">
-        <ImageGallery
-          autoPlay={true}
-          showThumbnails={false}
-          showPlayButton={false}
-          showNav={false}
-          showFullscreenButton={false}
-          items={imageItems}
-          onSlide={(currentIndex) => setInfo(imageItems[currentIndex])}
-        />
-      </div>
+      <>
+        <div className="banner">
+          <ImageGallery
+            autoPlay={true}
+            showThumbnails={false}
+            showPlayButton={false}
+            showNav={false}
+            showFullscreenButton={false}
+            items={imageItems}
+            onSlide={(currentIndex) => setInfo(imageItems[currentIndex])}
+          />
+        </div>
 
-      <div className="container mh-20 bg-dark mr-auto description">
-        <h3>{info.category} </h3>
-        <p>{info.date}</p>
-        <hr />
-        <p>{info.title}</p>
-        <p> By: {info.by}</p>
-      </div>
+        <div className="container mh-20 bg-dark mr-auto description">
+          <h3>{info.category} </h3>
+          <p>{info.date}</p>
+          <hr />
+          <p>{info.title}</p>
+          <p> By: {info.by}</p>
+        </div>
+      </>
     </div>
   );
 }
