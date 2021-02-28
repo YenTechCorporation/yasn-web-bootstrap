@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./navbar.css";
 import logo from "../../images/logo.jpg";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 function Navbar() {
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng)=> i18n.changeLanguage(lng);
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
@@ -24,27 +28,27 @@ function Navbar() {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
             <Link className="nav-link" to="/">
-              Home <span className="sr-only">(current)</span>
+              {t("home")} <span className="sr-only">(current)</span>
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/monthArticle">
-              Month's Article
+              {t("yearArticle")}
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/events">
-              Events
+            {t("events")}
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/archives">
-              Archives
+            {t("archives")}
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/">
-              Blog
+            {t("blog")}
             </Link>
           </li>
           <li className="nav-item dropdown">
@@ -57,21 +61,21 @@ function Navbar() {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Language
+              {t("language")}
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/">
+              <Link className="dropdown-item" onClick={()=>changeLanguage('en')}>
                 English
               </Link>
               <div className="dropdown-divider"></div>
-              <Link className="dropdown-item" to="/">
-                French
+              <Link className="dropdown-item" onClick={()=>changeLanguage('fr')}>
+                Français
               </Link>
             </div>
           </li>
           <li className="nav-item">
             <Link className="nav-link disabled" to="/">
-              Login
+            {t("login")}
             </Link>
           </li>
         </ul>
@@ -79,14 +83,14 @@ function Navbar() {
           <input
             className="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder={t("search")}
             aria-label="Search"
           />
           <button
             className="btn btn-outline-success my-2 my-sm-0"
             type="submit"
           >
-            Search
+             {t("search")}
           </button>
         </form>
       </div>
