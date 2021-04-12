@@ -16,7 +16,7 @@ function Footer() {
     {
       header: "Design and Developed By",
       text1: "YENTECHNOLOGY CORPORATION, yentech.corp@gmail.com",
-      text2: "CEOs: Aloute SANA & Alex ZONGO",
+      text2: "Welcome to our Services",
     },
   ];
   return (
