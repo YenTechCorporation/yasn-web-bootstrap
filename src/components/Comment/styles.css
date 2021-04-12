@@ -1,0 +1,38 @@
+.comment {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.comment > .reviewer_content {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 8px;
+  font-size: medium;
+  margin-right: auto;
+}
+
+.comment {
+  margin-right: auto;
+}
+
+.comment > .reviewer {
+  order: 0;
+  margin: 0.75rem;
+}
+
+.reviewer_name {
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+  position: absolute;
+  color: gray;
+  left: 2.35rem;
+  font-size: 15px;
+  top: -0.95rem;
+}

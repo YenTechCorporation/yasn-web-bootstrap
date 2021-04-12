@@ -1,28 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "./header.css";
+import db from "../../firebase";
+import logo from "../../images/logo.jpeg";
 function Header() {
   const [info, setInfo] = useState({});
+  const [events, setEvents] = useState([]);
 
-  const imageItems = [
+  const noEvents = [
     {
-      original:
-        "https://images.pexels.com/photos/719597/pexels-photo-719597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      category: "Debat",
-      date: "Mon 26/05/21",
-      title:
-        "L'administration Biden au prisme des alliés : perspectives croisées France-Japon.",
-      by: "Alex",
-    },
-    {
-      original:
-        "https://images.pexels.com/photos/776636/pexels-photo-776636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-      category: "Santé",
-      date: "Wed 23/06/21",
-      title: "L'avancée du Covid19; Quelles perspectives pour 2021?",
-      by: "Smith",
+      original: logo,
     },
   ];
+
+  useEffect(() => {
+    db.collection("events")
+      .orderBy("lastupdate", "asc")
+      .onSnapshot((snapshot) =>
+        setEvents(
+          snapshot.docs.map((doc) => ({
+            original: doc.data().src.src,
+            category: doc.data().category,
+            date: doc.data().date,
+            title: doc.data().title,
+            by: doc.data().authorId,
+          }))
+        )
+      );
+    if (events.length === 0) {
+      setEvents(noEvents);
+    }
+  }, [events.length]);
   return (
     <div className="container mh-25">
       <>
@@ -33,17 +41,23 @@ function Header() {
             showPlayButton={false}
             showNav={false}
             showFullscreenButton={false}
-            items={imageItems}
-            onSlide={(currentIndex) => setInfo(imageItems[currentIndex])}
+            items={events}
+            onSlide={(currentIndex) => setInfo(events[currentIndex])}
           />
         </div>
 
         <div className="container mh-20 bg-dark mr-auto description">
-          <h3>{info.category} </h3>
-          <p>{info.date}</p>
-          <hr />
-          <p>{info.title}</p>
-          <p> By: {info.by}</p>
+          {events[0]?.title ? (
+            <>
+              <h3>{info.category} </h3>
+              <p>{info.date}</p>
+              <hr />
+              <p>{info.title}</p>
+              <p> By: {info.by}</p>
+            </>
+          ) : (
+            <p>No events</p>
+          )}
         </div>
       </>
     </div>

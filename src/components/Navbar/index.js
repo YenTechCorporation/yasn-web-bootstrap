@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
-import logo from "../../images/logo.jpg";
+import logo from "../../images/logo.jpeg";
 import { Link } from "react-router-dom";
+import db from "../../firebase";
+
 function Navbar() {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    db.collection("categories").onSnapshot((snapshot) =>
+      setCategories(snapshot.docs.map((doc) => doc.id))
+    );
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
@@ -32,20 +41,30 @@ function Navbar() {
               Month's Article
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/events">
-              Events
+
+          <li className="nav-item dropdown">
+            <Link
+              className="nav-link dropdown-toggle"
+              to="/"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Categories
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/archives">
-              Archives
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Blog
-            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              {categories.map((category) => (
+                <Link
+                  key={category}
+                  className="dropdown-item"
+                  to={"/category/" + category}
+                >
+                  {category}
+                </Link>
+              ))}
+            </div>
           </li>
           <li className="nav-item dropdown">
             <Link

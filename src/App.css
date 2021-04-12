@@ -3,6 +3,9 @@
   text-align: center;
 }
 
+/* .app-footer {
+  bottom: 0;
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

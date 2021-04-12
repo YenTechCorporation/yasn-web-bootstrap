@@ -4,22 +4,30 @@ import FooterItem from "../FooterItem";
 function Footer() {
   const footerData = [
     {
-      header: "",
-      text1: "",
-      text2: "",
+      header: "Contact",
+      text1: "yasnetwork1@gmail.com",
+      text2: "Welcome to Young African Scholar Network",
     },
     {
-      header: "",
-      text1: "",
-      text2: "",
+      header: "Address",
+      text1: "Beijing - China - Haidian District",
+      text2: "Founder: Jean-Baptiste SEBGO",
+    },
+    {
+      header: "Design and Developed By",
+      text1: "YENTECHNOLOGY CORPORATION, yentech.corp@gmail.com",
+      text2: "CEOs: Aloute SANA & Alex ZONGO",
     },
   ];
   return (
-    <footer className="footer bg-dark">
+    <footer className="footer bg-dark bottom-0">
       <div className="container">
-        <div className="row d-flex flex-row flex-wrap">
+        <div
+          className="row d-flex flex-row flex-wrap"
+          style={{ justifyContent: "space-between" }}
+        >
           {footerData.map((data) => (
-            <FooterItem />
+            <FooterItem key={data.header} data={data} />
           ))}
         </div>
       </div>
