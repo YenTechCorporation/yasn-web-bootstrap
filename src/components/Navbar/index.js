@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import "./navbar.css";
 import logo from "../../images/logo.jpeg";
 import { Link } from "react-router-dom";
@@ -38,7 +39,7 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/monthArticle">
-              Month's Article
+              YearArticle
             </Link>
           </li>
 
@@ -79,13 +80,9 @@ function Navbar() {
               Language
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/">
-                English
-              </Link>
+              <Link className="dropdown-item">English</Link>
               <div className="dropdown-divider"></div>
-              <Link className="dropdown-item" to="/">
-                French
-              </Link>
+              <Link className="dropdown-item">Français</Link>
             </div>
           </li>
           <li className="nav-item">
@@ -98,7 +95,7 @@ function Navbar() {
           <input
             className="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder="search"
             aria-label="Search"
           />
           <button
