@@ -117,13 +117,18 @@ function SingleArticle() {
     <div>
       <section
         className="banner-section"
-        style={{ backgroundImage: `url(${post && post?.articleImg})` }}
+        style={{
+          backgroundImage: `url(${post && post?.articleImg})`,
+          maxHeight: "30vw",
+        }}
       ></section>
       <section className="post-content-section">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 post-title-block">
-              <h1 className="text-center">{post && post.title}</h1>
+              <h1 className="text-center" style={{ marginTop: "1rem" }}>
+                {post && post.title}
+              </h1>
               <ul className="list-inline text-center">
                 <li>By {post && post.authorId} |</li>
                 <li>{post && post.category} |</li>
@@ -132,7 +137,10 @@ function SingleArticle() {
             </div>
             <br />
             <br />
-            <div className="col-lg-9 col-md-9 col-sm-12">
+            <div
+              className="col-lg-9 col-md-9 col-sm-12"
+              style={{ top: "10vw" }}
+            >
               <div className="lead">{post && parse(post.articlebody)}</div>
 
               <div className="image-block">
@@ -153,7 +161,10 @@ function SingleArticle() {
                   ))}
               </div>
             </div>
-            <div className="col-lg-3  col-md-3 col-sm-12">
+            <div
+              className="col-lg-3  col-md-3 col-sm-12"
+              style={{ marginTop: "10vw" }}
+            >
               <div className="well">
                 <h2>Comments</h2>
                 <p>Share your thoughts about the article here</p>

@@ -6,8 +6,9 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Footer from "./components/Footer";
+import About from "./pages/About";
 import SingleArticle from "./pages/SingleArticle";
-import MonthArticle from "./pages/MonthArticle";
+import Support from "./pages/Support";
 
 function App() {
   return (
@@ -17,12 +18,12 @@ function App() {
         <Switch>
           <Route component={Home} path="/" exact />
           <Route component={SingleArticle} path="/articles/:id" />
-          <Route component={MonthArticle} path="/monthArticle" />
-          {/* <Route component={} path="/events" /> */}
+          <Route component={Support} path="/Support" />
+          <Route component={About} path="/about" />
           <Route component={Category} path="/category/:category" />
         </Switch>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

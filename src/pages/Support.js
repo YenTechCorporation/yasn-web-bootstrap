@@ -3,7 +3,7 @@ import ArticlePreview from "../components/ArticlePreview";
 import db from "../firebase";
 import logo from "../images/logo.jpeg";
 
-function MonthArticle() {
+function Support() {
   const [monthArticle, setMonthArticle] = useState();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function MonthArticle() {
           textAlign: "center",
         }}
       >
-        No Article found
+        Support
         <img
           src={logo}
           style={{ width: "100%", height: "40rem", objectFit: "contain" }}
@@ -56,4 +56,4 @@ function MonthArticle() {
   );
 }
 
-export default MonthArticle;
+export default Support;
