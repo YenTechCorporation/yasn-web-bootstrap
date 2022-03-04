@@ -6,6 +6,7 @@ import logo from "../../images/logo.jpeg";
 function Header() {
   const [info, setInfo] = useState({});
   const [events, setEvents] = useState([]);
+  
 
   const noEvents = [
     {

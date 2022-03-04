@@ -8,7 +8,7 @@ import Category from "./pages/Category";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import SingleArticle from "./pages/SingleArticle";
-import Support from "./pages/Support";
+import ArticleOfMonth from "./pages/ArticleOfMonth";
 
 function App() {
   return (
@@ -18,12 +18,12 @@ function App() {
         <Switch>
           <Route component={Home} path="/" exact />
           <Route component={SingleArticle} path="/articles/:id" />
-          <Route component={Support} path="/Support" />
+          <Route component={ArticleOfMonth} path="/articleofmonth" />
           <Route component={About} path="/about" />
           <Route component={Category} path="/category/:category" />
         </Switch>
       </Router>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

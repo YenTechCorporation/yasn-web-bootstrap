@@ -25,7 +25,7 @@ function Category() {
     <div className="container mr-2 bg-light" style={{ height: "100%" }}>
       <h2 style={{ fontFamily: "cursive", textAlign: "center" }}>{category}</h2>
       <hr />
-      {articlesByCat.length != 0 ? (
+      {articlesByCat.length !== 0 ? (
         <ArticlesList contents={articlesByCat} />
       ) : (
         <>

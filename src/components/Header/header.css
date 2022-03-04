@@ -3,10 +3,12 @@
 .banner {
   /* z-index: 0 !important; */
   position: relative !important;
+  /* width: 100vw; */
 }
 .banner .image-gallery .image-gallery-slide img {
   height: 28rem;
   object-fit: cover;
+  
 }
 
 .description {

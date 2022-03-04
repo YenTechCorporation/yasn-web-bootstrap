@@ -8,7 +8,7 @@ function HomeBody() {
 
   useEffect(() => {
     db.collection("posts")
-      .orderBy("createdate", "asc")
+      // .orderBy("createdate", "asc")
       .onSnapshot((snapshot) =>
         setArticles(
           snapshot.docs.map((doc) => ({
@@ -20,7 +20,9 @@ function HomeBody() {
   }, []);
   return (
     <div className="container mr-2 bg-light" style={{ height: "100%" }}>
-      <h2 style={{ fontFamily: "cursive", textAlign: "center" }}>
+      <h2 style={{ fontFamily: "fangsong",textAlign: "center", marginBottom:"2rem",marginTop:"2rem"}}>Welcome to our Services</h2>
+      <hr />
+      <h2 style={{ textAlign: "left",fontSize: 20}}>
         Recent Articles
       </h2>
       <hr />

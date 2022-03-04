@@ -30,7 +30,7 @@ function SingleArticle() {
               doc.data().lastupdate.toDate()
             ).toLocaleString(),
             articlebody: doc.data().articlebody,
-            articleImg: doc.data().src.src,
+            articleImg: doc.data().src&& doc.data().src.src,
           })
         )
       );
@@ -91,21 +91,18 @@ function SingleArticle() {
   const sendComment = (e) => {
     e.preventDefault();
     if (input !== "" && name !== "") {
-      if (comments) {
-        setComments([
-          ...comments,
-          {
-            name,
-            impression: input,
-          },
-        ]);
-      } else {
-        db.collection("posts").doc(post.id).collection("comments").add({
-          id: id,
+      setComments([
+        ...comments,
+        {
           name,
           impression: input,
-        });
-      }
+        },
+      ]);
+      db.collection("posts").doc(id).collection("comments").add({
+        id: id,
+        name,
+        impression: input,
+      });
     }
 
     setInput("");
@@ -119,14 +116,14 @@ function SingleArticle() {
         className="banner-section"
         style={{
           backgroundImage: `url(${post && post?.articleImg})`,
-          maxHeight: "30vw",
+          // maxHeight: "30vw",
         }}
       ></section>
       <section className="post-content-section">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 post-title-block">
-              <h1 className="text-center" style={{ marginTop: "1rem" }}>
+              <h1 className="text-center" style={{ marginTop: "0.2em" }}>
                 {post && post.title}
               </h1>
               <ul className="list-inline text-center">
@@ -139,35 +136,22 @@ function SingleArticle() {
             <br />
             <div
               className="col-lg-9 col-md-9 col-sm-12"
-              style={{ top: "10vw" }}
+              // style={{ top: "1vw" }}
             >
               <div className="lead">{post && parse(post.articlebody)}</div>
 
-              <div className="image-block">
+              {/* <div className="image-block">
                 <img
                   src={post && post.articleImg}
-                  alt="Article Image"
+                  alt="Article"
                   className="img-responsive"
                 />
-              </div>
+              </div> */}
               <br />
               <br />
               <hr />
-              <div>
-                <h2>Comments</h2>
-                {comments &&
-                  comments.map(({ id, name, impression }) => (
-                    <Comment key={id} name={name} content={impression} />
-                  ))}
-              </div>
-            </div>
-            <div
-              className="col-lg-3  col-md-3 col-sm-12"
-              style={{ marginTop: "10vw" }}
-            >
               <div className="well">
-                <h2>Comments</h2>
-                <p>Share your thoughts about the article here</p>
+                <h3>Share your thoughts about the article here</h3>
                 <div className="input-group">
                   <form>
                     <input
@@ -196,6 +180,31 @@ function SingleArticle() {
                   </form>
                 </div>
               </div>
+              <div>
+                <h3 style={{marginTop:"4rem"}}>Comments</h3>
+                {comments &&
+                  comments.map(({ id, name, impression }) => (
+                  
+                    <Comment key={id} name={name} content={impression} />
+                  ))}
+              </div>
+            </div>
+            <div
+              className="col-lg-3  col-md-3 col-sm-12"
+              style={{ marginTop: "70vw" }}
+            >
+              <div className="well">
+                <h2>About Author</h2>
+                <img
+                  src={author.authorImg}
+                  alt="Author"
+                  className="img-rounded"
+                />
+                <p>
+                  {author.authorName} | {author.position}
+                </p>
+              </div>
+              
               <div className="well">
                 <ul className="list-inline">
                   <li>
@@ -224,20 +233,7 @@ function SingleArticle() {
                   </li>
                 </ul>
               </div>
-              <div className="well">
-                <h2>About Author</h2>
-                <img
-                  src={author.authorImg}
-                  alt="Author Image"
-                  className="img-rounded"
-                />
-                <p>
-                  {author.authorName} | {author.position}
-                </p>
-                {/* <a href="#" className="btn btn-default">
-                  Read more
-                </a> */}
-              </div>
+              
 
               <div>
                 <button className="btn btn-default" onClick={moreArticles}>

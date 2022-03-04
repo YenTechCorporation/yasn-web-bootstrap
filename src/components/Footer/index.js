@@ -6,17 +6,20 @@ function Footer() {
     {
       header: "Contact",
       text1: "yasnetwork1@gmail.com",
-      text2: "Welcome to Young African Scholar Network",
+      text2: "+86 150 2225 1737",
+      text3:""
     },
     {
       header: "Address",
-      text1: "Beijing - China - Haidian District",
-      text2: "Founder: Jean-Baptiste SEBGO",
+      text1: "https://young-african-scholars-network.netlify.app/",
+      text2: "",
+      text3:""
     },
     {
-      header: "Design and Developed By",
-      text1: "YENTECHNOLOGY CORPORATION, yentech.corp@gmail.com",
-      text2: "Welcome to our Services",
+      header: "Join us on our social networks",
+      text1: "Facebook",
+      text2: "LinkedIn",
+      text3: "Twitter",
     },
   ];
   return (

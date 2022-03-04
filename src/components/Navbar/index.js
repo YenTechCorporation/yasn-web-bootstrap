@@ -37,17 +37,6 @@ function Navbar() {
               Home <span className="sr-only">(current)</span>
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">
-              About
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/support">
-              Support
-            </Link>
-          </li>
-
           <li className="nav-item dropdown">
             <Link
               className="nav-link dropdown-toggle"
@@ -72,6 +61,17 @@ function Navbar() {
               ))}
             </div>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/articleofmonth">
+              Article of the month
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/about">
+              About
+            </Link>
+          </li>
+          
           <li className="nav-item dropdown">
             <Link
               className="nav-link dropdown-toggle"

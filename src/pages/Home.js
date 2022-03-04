@@ -4,7 +4,7 @@ import HomeBody from "../components/HomeBody";
 
 function Home() {
   return (
-    <div className="container">
+    <div className="container" style={{margin:"0rem"}}>
       <Header />
       <HomeBody />
     </div>
